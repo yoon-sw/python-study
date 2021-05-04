@@ -1,3 +1,9 @@
+#PS D:\Kiswire_Git> git init
+#PS D:\Kiswire_Git> git add .
+#PS D:\Kiswire_Git> git commit -m "파이썬 변수,리스트, 튜플" 
+#PS D:\Kiswire_Git> git remote add origin https://github.com/yoon-sw/python-study.git
+#PS D:\Kiswire_Git> git push origin master
+
 #1.리스트
 list1=[1,2,3,4]
 list2=[5,6,7,8]
