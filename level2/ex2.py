@@ -15,6 +15,6 @@ class Person:
         self.password = password
 
 p = Person("ssar","!2334")
-print(p.username)
+print("이름 : "+p.username)
 
 
