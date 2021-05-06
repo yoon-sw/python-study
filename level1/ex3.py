@@ -23,6 +23,9 @@ list4 = [
     list1,
     list2
 ]           
+
+
+print(list4)
 print(list4)
 
 list5 = list1.append(10)
