@@ -1,8 +1,8 @@
-#PS D:\Kiswire_Git> git init
-#PS D:\Kiswire_Git> git add .
-#PS D:\Kiswire_Git> git commit -m "파이썬 변수,리스트, 튜플" 
-#PS D:\Kiswire_Git> git remote add origin https://github.com/yoon-sw/python-study.git
-#PS D:\Kiswire_Git> git push origin master
+# PS D:\Kiswire_Git> git init
+# PS D:\Kiswire_Git> git add .
+# PS D:\Kiswire_Git> git commit -m "5.7"
+# PS D:\Kiswire_Git> git remote add origin https://github.com/yoon-sw/python-study.git
+# PS D:\Kiswire_Git> git push origin master
 
 
 a = 1
@@ -75,9 +75,8 @@ phone2 = "02-777-9999"
 phone3 = "010-2222-3333"
 
 
-
 # 문자열 삽입
 username = "123"
 
 print(",".join(username))
-[출처] 파이썬 3강 - 숫자, 문자열 다루기|작성자 getinthere
+[출처] 파이썬 3강 - 숫자, 문자열 다루기 | 작성자 getinthere
