@@ -37,17 +37,17 @@
                 <tr>
                     <th>번호</th>
                     <th>제목</th>
+                    <th>내용</th>
+                    <th>날짜</th>
                 </tr>
             </thead>
-            <tbody>
-                {% for b in bs %}
+            <tbody>               
                 <tr>
                     <td>{{b.id}}</td>
-                    <td>
-                        <a href="/board/{{b.id}}">{{b.title}}</a>
-                    </td>
-                </tr>
-                {% endfor%}
+                    <td>{{b.title}}</td>
+                    <td>{{b.content}}</td>
+                    <td>{{b.createdate}}</td>
+                </tr>               
             </tbody>
         </table>
     </div>
