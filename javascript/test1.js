@@ -47,13 +47,56 @@ var r = () => 30;  // =>는 function 생략, {} 생략, 자동 return
 console.log(r());
 
 
+// 6.화살표 함수로 변경하기
+var f1 = function hello(n1) {
+    return n1 + 5;
+}
+var f2 = (n1) => {
+    n1 = n1 + 5;
+    return n1 + 5;
+}
+console.log(f2(5));
+
+//7.리스트(배열)
+var arr1 = [1, 2, 3];
+
+arr1.forEach((n) => {
+    console.log(n);
+});
+
+var arr2 = arr1.map((n) => {
+    return n + 5;
+});
+console.log(arr2);
+
+// MariaDB(타임존=Asia/Seoul) => 몽고DB (9시간전 UTC) 
+// +9시간 해서 INSERT
+// string 타입으로 변경해서 집어넣기
+// 8. Date
+var today = new Date();
+console.log(today);
 
 
 
+//Mongo DB
 
+// > db.users.find()
+// { "_id" : ObjectId("609b92d9e4664d89d7dac525"), "id" : 1, "username" : "ssar" }
+// { "_id" : ObjectId("609b92d9e4664d89d7dac526"), "id" : 2, "username" : "cos" }
+// { "_id" : ObjectId("609b92d9e4664d89d7dac527"), "id" : 3, "username" : "love" }
+// { "_id" : ObjectId("609b92d9e4664d89d7dac528"), "id" : 4, "username" : "hong" }
+// { "_id" : ObjectId("609b92d9e4664d89d7dac529"), "id" : 5, "username" : "choi", "friend" : { "id" : 2 } }
 
+db
 
+use korea;
 
+function f() {
+    var r = db.users.findOne({ id: 5 })
+    return db.users.find({ id: r.friend.id });
+}
+
+f();
 
 
 
