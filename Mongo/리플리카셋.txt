@@ -1,0 +1,86 @@
+
+//cmd 마다 실행 폴더가 사전에 만들어져 있어야함 , "downset" => 리플리카셋 이름
+mongod--replSet downSet--dbpath "c:\mongo\var1" --port 10000
+mongod--replSet downSet--dbpath "c:\mongo\var2" --port 10001
+mongod--replSet downSet--dbpath "c:\mongo\var3" --port 10002
+
+//포트확인
+netstat -ano
+
+//접속
+mongo --port 10000
+
+
+//설정확인
+rs.status();
+
+let config = {_id:"downSet", members:[{_id:1, host:"localhost:10000"}, {_id:2, host:"localhost:10001"}, {_id:3, host:"localhost:10002"}]};
+
+//확인
+config
+
+rs.initiate(config);
+
+//설정확인
+rs.status();
+
+
+show collections;
+
+//데이터 입력
+use korea;
+db.users.save({id:1, username:"ssar"});
+
+
+//새로운 //cmd
+mongo --port 10001
+
+
+// 조회 안됨 => 읽기 설정 변경해줘야함
+use korea;
+db.users.find();
+
+
+//Secondary 에서 읽기 지원 설정
+rs.secondaryOk();
+
+//10000 접속
+//Secondary에 대한 변수 설정
+secondary10001 = new Mongo("localhost:10001");
+secondary10002 = new Mongo("localhost:10002");
+
+//Secondary 활성화
+secondary10002.setSecondaryOk()
+
+//10002 변수 설정
+sdb10002 = secondary10002.getDB("korea")
+
+//10002의 korea 디비에 접속해서 쿼리할수 있다
+sdb10002.users.find()
+
+/***************************************************************************************************
+secondary10002 = new Mongo("localhost:10002"); // 커넥션 정보 얻기
+sdb10002 = secondary10002.getDB("korea"); // DB 정보 얻기
+secondary10002.setSecondaryOk(); // 읽기 모드 옵션 활성화
+sdb10002.users.find();
+********************************************************************************************************/
+
+--10000 서버 shutdown
+db.adminCommand({"shutdown":1});
+
+
+//Primary 확인 10001 접속
+rs.status();
+
+
+
+
+
+
+
+
+
+
+
+
+

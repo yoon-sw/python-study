@@ -38,4 +38,22 @@ for (i = 0; i < 100000; i++) {
     db.students.insertOne({ "student_id": i, "username": "user" + i, "class_id": Math.floor(Math.random() * 500) });
 }
 
+db.students.createIndex({ "student_id": 1, "class_id": 1 });
+
+
+db.students.find({ student_id: { $gt: 50000 }, class_id: 54 }).sort({ student_id: 1 }).explain("executionStats");
+
+
+
+db.students.createIndex({ "class_id": 1, "student_id": 1 });
+
+//Hint 
+db.students.find({ student_id: { $gt: 50000 }, class_id: 54 }).sort({ student_id: 1 }).hint({ class_id: 1 }).explain("executionStats");
+
+
+
+
+
+
+
 

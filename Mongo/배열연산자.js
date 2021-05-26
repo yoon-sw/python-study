@@ -163,7 +163,7 @@ db.food.updateOne({ _id: 1, fruit: "banana" }, { $set: { "fruit.$": "melon" } })
 // 필드삭제 $unset
 // 배열안에 값을 삭제 $pull
 
-db.food.updateOne({ _id: 2 }, { $pull: { fruit: "apple" } })
+db.food.updateOne({ _id: 2 }, { $pull: { fruit: "apple" } });
 
 
 
