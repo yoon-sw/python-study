@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class User {
 	@Id
@@ -17,3 +20,4 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 }
+
