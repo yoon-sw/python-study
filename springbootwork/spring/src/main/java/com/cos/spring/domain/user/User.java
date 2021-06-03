@@ -1,4 +1,4 @@
-package com.cos.spring.domain;
+package com.cos.spring.domain.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
