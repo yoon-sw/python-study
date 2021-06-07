@@ -77,7 +77,7 @@ public class UserController {
 	// User 정보를 모두 돌려주는 함수	(Get)
 	@GetMapping("/user")
 	public List<User> selectAll() {
-		List<User> users = userRepository.findAll();
+		List<User> users = userRepository.findAll(); 
 		return users; //자바 오브젝트를 리턴하면 자동으로 JSON으로 변경하여 리턴해준다
 	}
 	
@@ -94,8 +94,8 @@ public class UserController {
 			return new CustomException("selectOne : 아이디를 잘못 입력하였습니다.");			
 		});
 
-
-		return userEntity;
+		
+		return userEntity;  //스프링이 자바 Objec를 Json으로 변환
 	}
 	
 	// User 정보를 수정하는 함수	(Put)
