@@ -10,8 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.kiswire.maiatomongo.rdb.domain.Machine001;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Data
 @Document("fda001") //컬렉션이름
 public class MongoFda001 {
