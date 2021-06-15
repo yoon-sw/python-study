@@ -80,38 +80,38 @@ public class TestController {
 		return mongoFdaRepository.save(mongoFda001);
 	}
 	
-	@GetMapping("/maria/fda001/minus/{minusDay}")
-	public List<MariaFda001> pickDay(@PathVariable int minusDay) {
-		// 날짜 LocalDate.now().minusDays(1) 어제
-		LocalDateTime startTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(0, 0, 0));
-		LocalDateTime endTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(23, 59, 59));
-
-		Timestamp startTs = Timestamp.valueOf(startTime);
-		Timestamp endTs = Timestamp.valueOf(endTime);
-
-		System.out.println("startTime : " + startTime);
-		System.out.println("endTime : " + endTime);
-
-		System.out.println("startTs : " + startTs);
-		System.out.println("endTs : " + endTs);
-
-		return mariaFda001Repository.mFindByYesterday(startTs, endTs);
-	}
+//	@GetMapping("/maria/fda001/minus/{minusDay}")
+//	public List<MariaFda001> pickDay(@PathVariable int minusDay) {
+//		// 날짜 LocalDate.now().minusDays(1) 어제
+//			LocalDateTime startTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(0, 0, 0));
+//			LocalDateTime endTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(23, 59, 59));
+//
+//			Timestamp startTs = Timestamp.valueOf(startTime);
+//			Timestamp endTs = Timestamp.valueOf(endTime);
+//
+//			System.out.println("startTime : " + startTime);
+//			System.out.println("endTime : " + endTime);
+//
+//			System.out.println("startTs : " + startTs);
+//			System.out.println("endTs : " + endTs);
+//
+//			return mariaFda001Repository.mFindByYesterday(startTs, endTs);
+//	}
 	
-	@GetMapping("/maria/fda001/named/minus/{minusDay}")
-	public List<?> pickDayNamed(@PathVariable int minusDay, @PageableDefault(size = 3) Pageable pageable) {
-		// 날짜 LocalDate.now().minusDays(1) 어제
-		LocalDateTime startTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(0, 0, 0));
-		LocalDateTime endTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(23, 59, 59));
-		Timestamp startTs = Timestamp.valueOf(startTime);
-		Timestamp endTs = Timestamp.valueOf(endTime);
-		return mariaFda001Repository.findByPlcR0001TimestampBetween(startTs, endTs, pageable);
-	}
-	
-	@GetMapping("/maria/fda001/named/util/minus/{minusDay}")
-	public List<?> pickDayNamedUtil(@PathVariable int minusDay, @PageableDefault(size = 3) Pageable pageable) {
-		// 날짜 LocalDate.now().minusDays(1) 어제
-		CustomPickedTime ts = CustomPickedTime.getStartEndTs(minusDay);
-		return mariaFda001Repository.findByPlcR0001TimestampBetween(ts.getStartTs(), ts.getEndTs(), pageable);
-	}
+//	@GetMapping("/maria/fda001/named/minus/{minusDay}")
+//	public List<?> pickDayNamed(@PathVariable int minusDay, @PageableDefault(size = 3) Pageable pageable) {
+//		// 날짜 LocalDate.now().minusDays(1) 어제
+//		LocalDateTime startTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(0, 0, 0));
+//		LocalDateTime endTime = LocalDateTime.of(LocalDate.now().minusDays(minusDay), LocalTime.of(23, 59, 59));
+//		Timestamp startTs = Timestamp.valueOf(startTime);
+//		Timestamp endTs = Timestamp.valueOf(endTime);
+//		return mariaFda001Repository.findByPlcR0001TimestampBetween(startTs, endTs, pageable);
+//	}
+//	
+//	@GetMapping("/maria/fda001/named/util/minus/{minusDay}")
+//	public List<?> pickDayNamedUtil(@PathVariable int minusDay, @PageableDefault(size = 3) Pageable pageable) {
+//		// 날짜 LocalDate.now().minusDays(1) 어제
+//		CustomPickedTime ts = CustomPickedTime.getStartEndTs(minusDay);
+//		return mariaFda001Repository.findByPlcR0001TimestampBetween(ts.getStartTs(), ts.getEndTs(), pageable);
+//	}
 }

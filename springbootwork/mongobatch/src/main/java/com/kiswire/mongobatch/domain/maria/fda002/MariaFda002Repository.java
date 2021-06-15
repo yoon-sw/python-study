@@ -8,11 +8,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.kiswire.mongobatch.domain.maria.MariaFda;
+
 
 
 
 public interface MariaFda002Repository extends JpaRepository<MariaFda002, Long>{
 	
-	List<?> findByPlcR0001TimestampBetween(Timestamp startTime, Timestamp endTime, Pageable pageable);
-	List<?> findByPlcR0001TimestampBetween(Timestamp startTime, Timestamp endTime);
+	List<MariaFda> findByPlcR0001TimestampBetween(Timestamp startTime, Timestamp endTime);
+	
+	
 }
