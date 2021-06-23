@@ -1,6 +1,6 @@
 # PS D:\Kiswire_Git> git init
 # PS D:\Kiswire_Git> git add .
-# PS D:\Kiswire_Git> git commit -m "6.15 maria To mongo 5일 마지막"
+# PS D:\Kiswire_Git> git commit -m "6.16 flutter"
 # PS D:\Kiswire_Git> git remote add origin https://github.com/yoon-sw/python-study.git
 # PS D:\Kiswire_Git> git push origin master
 

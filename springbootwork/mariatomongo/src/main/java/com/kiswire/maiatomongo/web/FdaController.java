@@ -29,7 +29,7 @@ public class FdaController {
 		Machine001 machine = machine001Repository.findById(1L).get();
 			
 		List<Fda001> datas = new ArrayList<>();
-		for(int i=0;i<1000000;i++) {
+		for(int i=0;i<100;i++) {
 			Fda001 f = new Fda001();
 			f.setFda001R0037("data"+i);
 			f.setFda001R0038("data"+i);
